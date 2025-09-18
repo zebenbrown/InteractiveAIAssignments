@@ -31,7 +31,8 @@ public:
   // for unordered set
   size_t operator()(const Point2D& p) const noexcept { return ((uint64_t)p.x) << 32 | (uint64_t)p.y; };
 
-  uint64_t hash(Point2D const& p) const noexcept { return ((uint64_t)p.x) << 32 | (uint64_t)p.y; }
+  static uint64_t hash(Point2D const& p) { return ((uint64_t)p.x) << 32 | (uint64_t)p.y; }
+  static Point2D unhash(uint64_t hash) { return Point2D(hash >> 32, hash & 0xffffffff); }
 };
 
 namespace std {
