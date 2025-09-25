@@ -16,7 +16,7 @@ private:
   inline std::vector<bool>& nextBuffer() { return buffer[(currentBufferId + 1) % 2]; }
 
 public:
-  std::unordered_set<size_t> alive;
+  std::unordered_set<size_t> alive; //current state
   std::unordered_set<size_t> deadNeighbors;
   std::unordered_set<size_t> nextState;
   inline const int& SideSize() const { return sideSize; };
